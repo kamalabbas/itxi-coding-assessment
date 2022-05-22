@@ -1,0 +1,116 @@
+@import "src/scss/variables.scss";
+
+.home {
+    padding: 30px;
+
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+
+        .search-wrapper {
+            position: relative;
+            max-width: 550px;
+            width: 100%;
+
+            input {
+                height: 60px;
+                padding: 0 50px;
+                text-align: center;
+                width: 100%;
+                text-decoration: none;
+                box-sizing: border-box;
+                font-size: 1.3rem;
+                border-radius: 5px;
+            }
+
+            .icon {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    .cards-display {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 40px 0;
+        gap: $space-between-cards;
+        
+        .cards-wrapper {
+            width: calc((100% / $cards-column-count) - (($space-between-cards * 3) / 4));
+            border: 1px solid black;
+            box-sizing: border-box;
+
+            img {
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .content-wrapper {
+                min-height: 100px;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .title {
+                    font-size: 24px;
+                    margin-bottom: 8px;
+                }
+
+                .followers-count {
+                    font-size: 13px;
+                }
+
+                ngb-rating {
+                    font-size: 1.8rem;
+                }
+
+            }
+        }
+        
+       
+    }
+}
+
+.without-posts {
+    height: calc(100vh - ($header-height + 60px));
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:991px) {
+    .home {
+        .cards-display {
+            .cards-wrapper {
+                width: calc((100% / 3) - (($space-between-cards * 2) / 3));
+    
+                .content-wrapper {
+                    .title {
+                        font-size: 20px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .home {
+        padding: 15px;
+        .cards-display {
+            gap: $mobile-space-between-cards;
+            .cards-wrapper {
+                width: calc((100% / $mobile-cards-column-count) - ($mobile-space-between-cards / 2));
+
+            }
+        }
+    }
+}
+

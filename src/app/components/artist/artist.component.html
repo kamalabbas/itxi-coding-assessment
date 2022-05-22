@@ -1,0 +1,27 @@
+<div class="artist-wrapper">
+    <h1 class="artist-name">{{artistName}}</h1>
+    <span>Albums</span>
+
+  <div class="cards-display" *ngIf="artist?.items.length > 0">
+      <div class="cards-wrapper" *ngFor="let album of artist.items">
+        <img src="{{ album.images.length > 0 ? album.images[0].url : '/assets/images/default-image.png' }}" alt="{{ 'image of ' + album.name }}" />
+        <div class="flex-wrapper">
+          <div class="content-wrapper">
+            <div class="top-block">
+              <h2 class="title">{{album.name}}</h2>
+              <div class="card-artist-name">
+                <p *ngFor="let artist of album.artists; let last = last">{{artist.name }}{{last ? '' : ','}} </p>
+              </div>
+            </div>
+            <div class="bottom-block">
+              <p class="date">{{album.release_date}}</p>
+              <p class="tracks">{{album.total_tracks}}  {{album.total_tracks == 1 ? 'track' : 'tracks'}}</p>
+            </div>
+          </div>
+          <a class="preview-button" href="{{album.external_urls.spotify}}" target="blank" >Preview on spotify</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+
