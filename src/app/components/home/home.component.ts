@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit {
       },
       error: (err: any) => {
         this.artists = [];
-        console.log(err.error.error.message);
       },
     });
   }

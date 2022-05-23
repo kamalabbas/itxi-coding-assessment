@@ -51,9 +51,7 @@ export class LoginService {
         localStorage.setItem('userInfo', JSON.stringify(res));
         this.router.navigate(['/home']);
       },
-      error:(err: any) => {
-        console.log(err.error.error_description);
-      }
+      error:(err: any) => {}
     });
 
   }

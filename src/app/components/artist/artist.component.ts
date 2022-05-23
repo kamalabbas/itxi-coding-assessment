@@ -28,9 +28,7 @@ export class ArtistComponent implements OnInit {
       next: (res: any) => {
         this.artist = res;
       },
-      error: (err: any) => {
-        console.log(err.error);
-      },
+      error: (err: any) => {},
     });
   }
 }
