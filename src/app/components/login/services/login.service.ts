@@ -33,6 +33,10 @@ export class LoginService {
 
   getToken(code: string) {
 
+    if(localStorage.getItem('userInfo')) {
+      localStorage.removeItem('userInfo');
+    }
+
     const searchParams = new URLSearchParams([
       ['grant_type', 'authorization_code'],
       ['code', code],
